@@ -1,0 +1,249 @@
+{% load static %}
+<html lang="en">
+<head>
+
+    <!-- Basic Page Needs
+    ================================================== -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>WeatherBit</title>
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+
+    <!-- Mobile Specific Metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <!-- Favicon
+    ================================================== -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'chartapp/img/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'chartapp/img/favicon.png' %}">
+
+    <!-- Stylesheets
+    ================================================== -->
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'chartapp/css/bootstrap.min.css'%}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'chartapp/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'chartapp/css/responsive.css' %}" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+
+    <header id="masthead" class="site-header">
+        <nav id="primary-navigation" class="site-navigation">
+            <div class="container">
+
+                <div class="navbar-header">
+
+                    <a class="site-title"><span>Weather</span>Bit</a>
+
+                </div><!-- /.navbar-header -->
+
+                <div class="collapse navbar-collapse" id="agency-navbar-collapse">
+
+                    <ul class="nav navbar-nav navbar-right">
+
+                        <li class="active"><a href="{% url 'index' %}">Home</a></li>
+                        <li><a href="#aboutsection">About</a></li>
+                        <li><a href="#causesection">Causes</a></li>
+                        <li><a href="#solutionsection">Solutions</a></li>
+
+
+                    </ul>
+
+                </div>
+
+            </div>
+        </nav><!-- /.site-navigation -->
+    </header><!-- /#mastheaed -->
+
+    <div id="hero" class="hero overlay">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Let us nurture nature to have a nurturing future.</h1>
+                <p></p>
+                <a href="{% url 'explore' %}" class="btn btn-border">Explore more</a>
+            </div><!-- /.hero-text -->
+        </div><!-- /.hero-content -->
+    </div><!-- /.hero -->
+
+    <main id="main" class="site-main">
+
+        <section class="site-section section-features" id="aboutsection">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <h2>Exploratory Data Analysis</h2>
+                        <p>Exploratory Data Analysis is an analysis approach that identifies general patterns in the data.Information about climate changes is required at global, regional levels for a variety of purposes, including the study of impact of the greenhouse gases. The analyses mentioned in this research relate to the observation of trends in the temperatures of the Indian states.It develops for the proposed work, where the analysis of means of the average temperatures observed across the Indian states from 1901-2017 is summarized, which in turn is found to reveal useful results  </p>
+                    </div>
+                    <div class="col-sm-7 hidden-xs">
+                        <img src="{% static 'chartapp/img/img1.jpeg' %}" alt="">
+                    </div>
+                </div>
+            </div>
+        </section><!-- /.section-features -->
+
+        <section class="site-section section-services gray-bg text-center" id="causesection">
+            <div class="container">
+                <h2 class="heading-separator">Global Warming Causes</h2>
+                <p class="subheading-text">Global warming is a phenomenon of climate change characterized by a general increase in average temperatures of the Earth, which modifies the weather balances and ecosystems for a long time.</p>
+                <div class="row">
+                    <div class="col-md-4 col-xs-6">
+                        <div class="service">
+                            <img src="{% static 'chartapp/img/c1.png' %}" alt="">
+                            <h3 class="service-title">FOSSIL FUELS</h3>
+                            <p class="service-info">The massive use of fossil fuels is obviously the first source of global warming, as burning coal, oil and gas produces carbon dioxide.</p>
+                        </div><!-- /.service -->
+                    </div>
+                    <div class="col-md-4 col-xs-6">
+                        <div class="service">
+                            <img src="{% static 'chartapp/img/c2.png' %}" alt="">
+                            <h3 class="service-title">DEFORESTATION</h3>
+                            <p class="service-info">The exploitation of forests has a major role in climate change. Trees help regulate the climate by absorbing CO2 from the atmosphere. </p>
+                        </div><!-- /.service -->
+                    </div>
+                    <div class="col-md-4 col-xs-6">
+                        <div class="service">
+                            <img src="{% static 'chartapp/img/c3.png' %}" alt="">
+                            <h3 class="service-title">INTENSIVE FARMING</h3>
+                            <p class="service-info">Another cause of global warming is intensive farming, not only with the ever-increasing livestock, but also with plant protection products and fertilizers.</p>
+                        </div><!-- /.service -->
+                    </div>
+                    <div class="col-md-4 col-xs-6">
+                        <div class="service">
+                            <img src="{% static 'chartapp/img/c4.png' %}" alt="">
+                            <h3 class="service-title">WASTE DISPOSAL</h3>
+                            <p class="service-info">Waste management methods like landfills and incineration emit greenhouse and toxic gases - including methane - that are released into the atmosphere, soil and waterways, contributing to the increase of the greenhouse effect.</p>
+                        </div><!-- /.service -->
+                    </div>
+                    <div class="col-md-4 col-xs-6">
+                        <div class="service">
+                            <img src="{% static 'chartapp/img/c5.png' %}" alt="">
+                            <h3 class="service-title">MINING</h3>
+                            <p class="service-info">Metals and minerals are the raw materials used in the construction, transportation and manufacturing of goods. From extraction to delivery, this market accounts for 5% of all greenhouse gas emissions. </p>
+                        </div><!-- /.service -->
+                    </div>
+                    <div class="col-md-4 col-xs-6">
+                        <div class="service">
+                            <img src="{% static 'chartapp/img/c6.png' %}" alt="">
+                            <h3 class="service-title">OVERCONSUMPTION</h3>
+                            <p class="service-info">Overexploitation of natural resources and emissions from international freight transport, which both contribute to global warming.</p>
+                        </div><!-- /.service -->
+                    </div>
+                </div>
+            </div>
+        </section><!-- /.section-services -->
+
+         <section class="site-section section-portfolio text-center " id="solutionsection">
+            <div class="container">
+                <h2 class="heading-separator">Global Warming Solutions</h2>
+<!--                <p class="subheading-text">Global warming is likely to be the greatest threat of the 21st century. Find out its causes and effects, but most importantly the solutions to prevent</p>-->
+                <div class="row">
+                    <div class="col-md-4 col-xs-6">
+                        <div class="service">
+                            <img src="{% static 'chartapp/img/s1.png' %}" alt="">
+                            <h3 class="service-title">RENEWABLE ENERGIES</h3>
+                            <p class="service-info">The first way to prevent climate change is to move away from fossil fuels.and used renewable energies like solar, wind, biomass and geothermal.</p>
+                        </div><!-- /.service -->
+                    </div>
+                    <div class="col-md-4 col-xs-6">
+                        <div class="service">
+                            <img src="{% static 'chartapp/img/s2.png' %}" alt="">
+                            <h3 class="service-title">ENERGY AND WATER EFFICIENCY</h3>
+                            <p class="service-info">Producing clean energy is essential, but reducing our consumption of energy and water by using more efficient devices (e.g. LED light bulbs, innovative shower systems) is less costly and equally important. </p>
+                        </div><!-- /.service -->
+                    </div>
+                    <div class="col-md-4 col-xs-6">
+                        <div class="service">
+                            <img src="{% static 'chartapp/img/s3.png' %}" alt="">
+                            <h3 class="service-title">SUSTAINABLE TRANSPORTATION</h3>
+                            <p class="service-info">Promoting public transportation, carpooling, but also electric and hydrogen mobility, can definitely help reduce CO2 emissions and thus fight global warming.</p>
+                        </div><!-- /.service -->
+                    </div>
+                    <div class="col-md-4 col-xs-6">
+                        <div class="service">
+                            <img src="{% static 'chartapp/img/s4.png' %}" alt="">
+                            <h3 class="service-title">SUSTAINABLE INFRASTRUCTURE</h3>
+                            <p class="service-info"> It is necessary both to build new low energy buildings, and to renovate the existing constructions.</p>
+                        </div><!-- /.service -->
+                    </div>
+                    <div class="col-md-4 col-xs-6">
+                        <div class="service">
+                            <img src="{% static 'chartapp/img/s5.png' %}" alt="">
+                            <h3 class="service-title">SUSTAINABLE AGRICULTURE</h3>
+                            <p class="service-info">Encouraging better use of natural resources, stopping massive deforestation as well as making agriculture greener and more efficient should also be a priority.</p>
+                        </div><!-- /.service -->
+                    </div>
+                    <div class="col-md-4 col-xs-6">
+                        <div class="service">
+                            <img src="{% static 'chartapp/img/s6.png' %}" alt="">
+                            <h3 class="service-title">RESPONSIBLE CONSUMPTION AND RECYCLING</h3>
+                            <p class="service-info">Adopting responsible consumption habits is crucial, be it regarding food (particularly meat), clothing, cosmetics or cleaning products. Last but not least, recycling is an absolute necessity for dealing with waste</p>
+                        </div><!-- /.service -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main><!-- /#main -->
+
+    <footer id="colophon" class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-4 col-xs-6">
+                    <a class="site-title"><span>Weather</span>Bit</a>
+                     <img src="{% static 'chartapp/img/fimg2.jpg' %}" width="500px" alt="">
+                </div>
+                <div class="col-lg-offset-4 col-md-3 col-sm-4 col-md-offset-2 col-sm-offset-0 col-xs-6 ">
+                    <h3>Keep in touch</h3>
+                    <ul class="list-unstyled contact-links">
+                        <li><i class="fa fa-envelope" aria-hidden="true"></i><a href="#">amrutatotala0806@gmail.com</a></li>
+                        <li><i class="fa fa-phone" aria-hidden="true"></i><a href="tel:+37400800000">+91 7218312353 </a></li>
+                        <li><i class="fa fa-fax" aria-hidden="true"></i><a href="+37400900000">+91 8766441164</a></li>
+                        <li><i class="fa fa-map-marker" aria-hidden="true"></i><p>Aurangabad</p></li>
+                    </ul>
+                </div>
+                <div class="clearfix visible-xs"></div>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                    <h3>Featured links</h3>
+                    <ul class="list-unstyled">
+                        <li class="active"><a href="index.html">Home</a></li>
+                        <li><a href="#aboutsection">About</a></li>
+                        <li><a href="#causesection">Causes</a></li>
+                        <li><a href="#solutionsection">Solutions</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </footer><!-- /#footer -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="{% static 'chartapp/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'chartapp/js/bootstrap-select.min.js' %}"></script>
+    <script src="{% static 'chartapp/js/jquery.slicknav.min.js' %}"></script>
+    <script src="{% static 'chartapp/js/jquery.countTo.min.js' %}"></script>
+    <script src="{% static 'chartapp/js/jquery.shuffle.min.js' %}"></script>
+    <script src="{% static 'chartapp/js/script.js'%}"></script>
+  
+</body>
+</html>

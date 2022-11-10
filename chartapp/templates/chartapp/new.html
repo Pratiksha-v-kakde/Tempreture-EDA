@@ -1,0 +1,263 @@
+{% extends 'partials/base.html' %}
+
+{% block content %}
+
+
+    <div class="row mt-5">
+        <div class="col-md-4 mt-2">
+          <form action="{% url 'new' %}" method="POST">
+              {% csrf_token %}
+            {% if years %}
+              <label for="years" class="mb-2"><strong>Choose a Year:</strong></label>
+              <select name="years" id="years" class="form-select mb-2" >
+              {% for year in years %}
+                <option value="{{ year.pk }}">{{ year.YEAR }} </option>
+              {% endfor %}
+              </select>
+            {% endif %} <input type="submit" value="Select" class="btn btn-success">
+              <a href="{% url 'export_excel' %}" class="btn btn-primary">Export Excel</a>
+             <a href="{% url 'export_csv' %}" class="btn btn-primary">Export CSV</a>
+
+          </form>
+
+
+
+        </div>
+          <div class="col-md-4">
+            <canvas id="myChart1" width="400" height="250"></canvas>
+                <script type="text/javascript">
+                var ctx1= document.getElementById('myChart1').getContext('2d');
+                var myChart = new Chart(ctx1, {
+                    type:'line',
+                    data: {
+                        labels: ['JAN', 'FEB', 'MAR', 'APR',
+               'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT',
+               'NOV',
+               'DEC'],
+                        datasets: [{
+                            label: 'Year {{selectval}} ',
+                            data: [{% for temp in mylist2 %}  {{ temp }},  {% endfor %}],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.8)',
+                                'rgba(54, 162, 235, 0.8)',
+                                'rgba(255, 206, 86, 0.8)',
+                                'rgba(75, 192, 192, 0.8)',
+                                'rgba(153, 102, 255, 0.8)',
+                                'rgba(255, 159, 64, 0.8)',
+                                'rgba(240, 120, 50, 0.8)',
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)',
+                                'rgba(240, 120, 50, 1)',
+
+                            ],
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+
+                        }
+                    }
+                });
+
+
+
+                </script>
+        </div>
+          <div class="col-md-4">
+            <canvas id="myChart2" width="400" height="250"></canvas>
+                <script type="text/javascript">
+                var ctx2= document.getElementById('myChart2').getContext('2d');
+                var myChart = new Chart(ctx2, {
+                    type:'bar',
+                    data: {
+                        labels: ['JAN', 'FEB', 'MAR', 'APR',
+               'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT',
+               'NOV',
+               'DEC'],
+                        datasets: [{
+                            label: 'Year {{selectval}} ',
+                            data: [{% for temp in mylist2 %}  {{ temp }},  {% endfor %}],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.8)',
+                                'rgba(54, 162, 235, 0.8)',
+                                'rgba(255, 206, 86, 0.8)',
+                                'rgba(75, 192, 192, 0.8)',
+                                'rgba(153, 102, 255, 0.8)',
+                                'rgba(255, 159, 64, 0.8)',
+                                'rgba(240, 120, 50, 0.8)',
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)',
+                                'rgba(240, 120, 50, 1)',
+
+                            ],
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+
+                        }
+                    }
+                });
+
+
+
+                </script>
+        </div>
+    </div>
+    <div class="row mt-5">
+
+
+        <div class="col-md-4">
+            <div class="container">
+
+    <div class="col-md-4 w-100 mb-3">
+      <div class="card-counter primary">
+       <i class="fa fa-thermometer-empty"></i>
+        <span class="count-numbers">{{min_pos}}-{{min_val}}</span><br>
+        <span class="count-name">Minimum Average Temperature Month</span>
+      </div>
+    </div>
+
+    <div class="col-md-4 w-100 mb-3">
+      <div class="card-counter danger">
+        <i class="fa fa-thermometer-full"></i>
+        <span class="count-numbers">{{max_pos}}-{{max_val}}</span><br>
+        <span class="count-name">Maximum Average Temperature Month</span>
+      </div>
+    </div>
+
+    <div class="col-md-4 w-100 mb-3">
+      <div class="card-counter success">
+        <i class="fa fa-thermometer-three-quarters"></i>
+        <span class="count-numbers">{{average}}</span><br>
+        <span class="count-name">Average Year Temperature</span>
+      </div>
+    </div>
+
+
+</div>
+
+        </div>
+         <div class="col-md-4">
+            <canvas id="myChart3" width="400" height="250"></canvas>
+                <script type="text/javascript">
+                var ctx3= document.getElementById('myChart3').getContext('2d');
+                var myChart = new Chart(ctx3, {
+                    type:'radar',
+                    data: {
+                        labels: ['JAN', 'FEB', 'MAR', 'APR',
+               'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT',
+               'NOV',
+               'DEC'],
+                        datasets: [{
+                            label: 'Year {{selectval}} ',
+                            data: [{% for temp in mylist2 %}  {{ temp }},  {% endfor %}],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.8)',
+                                'rgba(54, 162, 235, 0.8)',
+                                'rgba(255, 206, 86, 0.8)',
+                                'rgba(75, 192, 192, 0.8)',
+                                'rgba(153, 102, 255, 0.8)',
+                                'rgba(255, 159, 64, 0.8)',
+                                'rgba(240, 120, 50, 0.8)',
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)',
+                                'rgba(240, 120, 50, 1)',
+
+                            ],
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+
+                        }
+                    }
+                });
+
+
+
+                </script>
+        </div>
+        <div class="col-md-4">
+            <canvas id="myChart4" width="400" height="250"></canvas>
+                <script type="text/javascript">
+                var ctx4= document.getElementById('myChart4').getContext('2d');
+                var myChart = new Chart(ctx4, {
+                    type:'doughnut',
+                    data: {
+                        labels: ['JAN', 'FEB', 'MAR', 'APR',
+               'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT',
+               'NOV',
+               'DEC'],
+                        datasets: [{
+                            label: 'Year {{selectval}} ',
+                            data: [{% for temp in mylist2 %}  {{ temp }},  {% endfor %}],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.8)',
+                                'rgba(54, 162, 235, 0.8)',
+                                'rgba(255, 206, 86, 0.8)',
+                                'rgba(75, 192, 192, 0.8)',
+                                'rgba(153, 102, 255, 0.8)',
+                                'rgba(255, 159, 64, 0.8)',
+                                'rgba(240, 120, 50, 0.8)',
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)',
+                                'rgba(240, 120, 50, 1)',
+
+                            ],
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+
+                        }
+                    }
+                });
+                </script>
+        </div>
+
+
+
+    </div>
+
+{% endblock %}
